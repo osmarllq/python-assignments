@@ -9,6 +9,6 @@ def computepay(hours,rate):
    tpay = extra + pay
   else:
    tpay = hours * rate 
-  print 'Pay:', str(tpay)
+  return tpay
  except:
-  print 'Error, please enter numeric input' 
+  print 'Error, please provide numeric input' 
