@@ -6,6 +6,7 @@ Hash tables are the way dictionaries are implemented in Python.
 Here we will create a dictionary and provide a way to manage collisions.
 A simple way to deal with collisions consists in assigning the colliding keys
 to the same bucket.
+
 Then a dictionary can be represented as a list of buckets, where each bucket is
 a list of key-value tuples. By making each bucket a list, we handle collisions
 by storing all the values that hash to that bucket.
@@ -86,11 +87,28 @@ for hashBucket in D.buckets: #violates abstraction barrier
 
 
 
+'''
+A hash function maps a large space of inputs (e.g., all natural numbers) to a
+smaller space of outputs (e.g., the natural numbers between 0 and 5000).
+The space of possible outputs should be much smaller than the space of possible
+inputs!
 
+A hash function is "many-to-one", that is, multiple different inputs are mapped
+to the same output. When two inputs are mapped to the same output, it is called
+a collision. A good hash function produces a uniform distribution, i.e., every
+output in the range is equally probable, which minimizes the probability of
+collisions.
 
+Remember the intDict code from the previous code? intDict uses a simple hash
+function (modulus) to implement a dictionary with integers as keys. The basic
+idea is to represent instances of class intDict by a list of buckets, where
+each bucket is a list of (key, value) tuples. By making each bucket a list,
+we handle collisions by storing all of the values that hash to that bucket.
 
-
-
+However, collisions are inevitable when implementing hash tables, because
+generally we are mapping a really big set of inputs to a much smaller set
+of buckets.
+'''
 
 
 

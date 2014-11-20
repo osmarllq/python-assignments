@@ -59,4 +59,3 @@ print hashStr('Jill', 7)
 index, we have a collision, because both keys are assigned to the same position
 in the list or, equivalently, to the same bucket in the hash table. 
 '''
-
